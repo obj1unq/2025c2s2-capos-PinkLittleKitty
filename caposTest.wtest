@@ -92,7 +92,9 @@ describe "Parte 2 - Mensajes con bloques" {
   test "2.2 libro de hechizos" {
     rolando.poderBase(5)
     rolando.encuentra(libroHechizos)
-    castilloPiedra.arcas().union(#{espadaDestino, armaduraValyria, collarDivino})
+    castilloPiedra.incorpora(espadaDestino)
+    castilloPiedra.incorpora(armaduraValyria)
+    castilloPiedra.incorpora(collarDivino)
     libroHechizos.contiene(bendicion)
     libroHechizos.contiene(invisibilidad)
     libroHechizos.contiene(invocacion)
@@ -103,9 +105,8 @@ describe "Parte 2 - Mensajes con bloques" {
     assert.equals(6, libroHechizos.aportePoder(rolando))
     //Segunda batalla
     rolando.batalla()
-    
     assert.equals(7, invocacion.aportePoder(rolando))
-    //Tercera batalla 
+    //Tercera batalla
     rolando.batalla()
     assert.equals(0, libroHechizos.aportePoder(rolando))
   }
