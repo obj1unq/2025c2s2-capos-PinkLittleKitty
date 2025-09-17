@@ -64,9 +64,21 @@ object rolando {
         return self.puedeVencer(lugar.dueño()) 
     }
 
+    method esPoderoso() {
+        return erethia.esPoderoso(self)
+    }
+
 }
 
-// LUGAR
+// LUGARES
+object erethia {
+    var property enemigos = #{caterina, archivaldo, astra}
+
+    method esPoderoso(persona) {
+        return enemigos.all({enemigo => persona.poder() > enemigo.poderBase()})
+    }
+}
+
 object castilloPiedra{
 
     var property dueño = rolando

@@ -117,9 +117,21 @@ describe "Parte 2 - Mensajes con bloques" {
     rolando.encuentra(espadaDestino)
     rolando.encuentra(armaduraValyria)
     rolando.encuentra(collarDivino)
-    
+
     assert.notThat(rolando.puedeVencer(caterina))
     assert.that(rolando.puedeVencer(archivaldo))
     assert.that(rolando.puedeVencer(astra))
+  }
+
+  test "2.4 poderoso" {
+    rolando.poderBase(5)
+    rolando.capacidadMochila(3)
+    rolando.encuentra(espadaDestino)
+    rolando.encuentra(armaduraValyria)
+    rolando.encuentra(collarDivino)
+    assert.notThat(rolando.esPoderoso())
+
+    rolando.poderBase(10)
+    assert.that(rolando.esPoderoso())
   }
 }
