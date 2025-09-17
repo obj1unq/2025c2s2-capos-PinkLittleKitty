@@ -110,4 +110,16 @@ describe "Parte 2 - Mensajes con bloques" {
     rolando.batalla()
     assert.equals(0, libroHechizos.aportePoder(rolando))
   }
+
+  test "2.3 enemigos" {
+    rolando.poderBase(5)
+    rolando.capacidadMochila(3)
+    rolando.encuentra(espadaDestino)
+    rolando.encuentra(armaduraValyria)
+    rolando.encuentra(collarDivino)
+    
+    assert.notThat(rolando.puedeVencer(caterina))
+    assert.that(rolando.puedeVencer(archivaldo))
+    assert.that(rolando.puedeVencer(astra))
+  }
 }

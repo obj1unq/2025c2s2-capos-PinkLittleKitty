@@ -56,12 +56,50 @@ object rolando {
         poderBase += 1
     }
 
+    method puedeVencer(enemigo) {
+        return self.poder() > enemigo.poderBase()
+    }
+
+    method puedeConquistar(lugar) {
+        return self.puedeVencer(lugar.dueño()) 
+    }
+
 }
 
 // LUGAR
 object castilloPiedra{
 
     var property dueño = rolando
+    const arcas = #{}
+    method arcas() {return arcas}
+
+    method incorpora(artefacto) {
+        arcas.add(artefacto)
+    }
+}
+
+object fortalezaAcero{
+    var property dueño = caterina
+    const arcas = #{}
+    method arcas() {return arcas}
+
+    method incorpora(artefacto) {
+        arcas.add(artefacto)
+    }
+}
+
+object palacioMarmol {
+    var property dueño = archivaldo
+    const arcas = #{}
+    method arcas() {return arcas}
+
+    method incorpora(artefacto) {
+        arcas.add(artefacto)
+    }
+}
+
+object torreMarfil {
+    var property dueño = astra
     const arcas = #{}
     method arcas() {return arcas}
 
@@ -189,3 +227,19 @@ object invocacion {
     }
 }
 
+// ENEMIGOS
+
+object caterina {
+    var property poderBase = 28
+    var property morada = fortalezaAcero
+}
+
+object archivaldo {
+    var property poderBase = 16
+    var property morada = palacioMarmol
+}
+
+object astra {
+    var property poderBase = 14
+    var property morada = torreMarfil
+}
