@@ -67,7 +67,14 @@ object rolando {
     method esPoderoso() {
         return erethia.esPoderoso(self)
     }
+    
+    method artefactoFatal(artefacto, enemigo) {
+        return artefacto.aportePoder(self) > enemigo.poderBase()
+    }
 
+    method cualArtefactoEsFatal(enemigo) {
+        return mochila.find({artefacto => self.artefactoFatal(artefacto, enemigo)})
+    }
 }
 
 // LUGARES
